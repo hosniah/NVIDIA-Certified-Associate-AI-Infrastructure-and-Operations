@@ -21,11 +21,11 @@ Each generation of NVIDIA data center GPUs introduces architectural innovations 
 ### Architecture Timeline
 
 ```
-2017         2020          2022           2024
- │            │             │              │
- ▼            ▼             ▼              ▼
-Volta ──► Ampere ──► Hopper ──► Blackwell
-(V100)    (A100)     (H100/H200)  (B200/B100)
+ 2017       2020         2022            2024
+  │          │             │               │
+  ▼          ▼             ▼               ▼
+Volta  ──► Ampere ──►   Hopper    ──►  Blackwell
+(V100)     (A100)     (H100/H200)     (B200/B100)
 ```
 
 ### Volta (V100) — 2017
@@ -231,23 +231,23 @@ NVIDIA's software ecosystem is a layered stack, from low-level GPU libraries to 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              Applications & Frameworks                   │
-│  (NeMo, Metropolis, Clara, DRIVE, Omniverse)            │
+│                Applications & Frameworks                │
+│       (NeMo, Metropolis, Clara, DRIVE, Omniverse)       │
 ├─────────────────────────────────────────────────────────┤
-│           Deployment & Serving                           │
-│  (Triton Inference Server, NIM, TensorRT)               │
+│                  Deployment & Serving                   │
+│        (Triton Inference Server, NIM, TensorRT)         │
 ├─────────────────────────────────────────────────────────┤
-│           AI Frameworks                                  │
-│  (PyTorch, TensorFlow, JAX, RAPIDS)                     │
+│                      AI Frameworks                      │
+│           (PyTorch, TensorFlow, JAX, RAPIDS)            │
 ├─────────────────────────────────────────────────────────┤
-│           Core GPU Libraries                             │
-│  (cuDNN, cuBLAS, cuFFT, NCCL, CUTLASS)                  │
+│                   Core GPU Libraries                    │
+│          (cuDNN, cuBLAS, cuFFT, NCCL, CUTLASS)          │
 ├─────────────────────────────────────────────────────────┤
-│           CUDA Platform                                  │
-│  (CUDA Toolkit, Drivers, NVML)                          │
+│                      CUDA Platform                      │
+│              (CUDA Toolkit, Drivers, NVML)              │
 ├─────────────────────────────────────────────────────────┤
-│           GPU Hardware                                   │
-│  (CUDA Cores, Tensor Cores, HBM, NVLink)                │
+│                      GPU Hardware                       │
+│         (CUDA Cores, Tensor Cores, HBM, NVLink)         │
 └─────────────────────────────────────────────────────────┘
 ```
 

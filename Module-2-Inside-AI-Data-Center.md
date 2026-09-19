@@ -21,17 +21,17 @@ Every data center — whether it supports traditional enterprise IT or cutting-e
 ### Pillar Overview
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                    AI-Centric Data Center                     │
-├──────────────┬──────────────┬──────────────┬────────────────┤
-│   Compute    │  Networking  │   Storage    │    Support      │
-│              │              │              │ Infrastructure  │
-│  CPU         │  InfiniBand  │  Parallel    │  Power          │
-│  GPU         │  Ethernet    │  File        │  Cooling        │
-│  DPU         │  NVLink      │  Systems     │  Physical       │
-│              │  NVSwitch    │  Object      │  Security       │
-│              │              │  Storage     │                 │
-└──────────────┴──────────────┴──────────────┴────────────────┘
+┌───────────────────────────────────────────────────────────────────────┐
+│                        AI-Centric Data Center                         │
+├─────────────────┬─────────────────┬─────────────────┬─────────────────┤
+│     Compute     │   Networking    │     Storage     │     Support     │
+│                 │                 │                 │  Infrastructure │
+│  CPU            │  InfiniBand     │  Parallel       │  Power          │
+│  GPU            │  Ethernet       │  File           │  Cooling        │
+│  DPU            │  NVLink         │  Systems        │  Physical       │
+│                 │  NVSwitch       │  Object         │  Security       │
+│                 │                 │  Storage        │                 │
+└─────────────────┴─────────────────┴─────────────────┴─────────────────┘
 ```
 
 **Compute** provides the processing power — CPUs for general tasks, GPUs for parallel AI workloads, and DPUs for infrastructure offload. **Networking** connects compute nodes and enables multi-node AI training across clusters. **Storage** feeds data to the GPUs fast enough to keep them utilized. **Support Infrastructure** ensures reliable power delivery, adequate cooling, and physical security.
@@ -293,19 +293,19 @@ NVLink-C2C is a coherent chip-to-chip interconnect used in the **Grace Hopper Su
 AI data center networks typically use a **fat-tree (Clos) topology** or a **spine-leaf architecture**:
 
 ```
-         ┌──────┐  ┌──────┐  ┌──────┐
-         │Spine │  │Spine │  │Spine │
-         │Switch│  │Switch│  │Switch│
-         └──┬───┘  └──┬───┘  └──┬───┘
-            │         │         │
-    ┌───────┼─────────┼─────────┼───────┐
-    │       │         │         │       │
-┌───┴──┐┌──┴───┐┌────┴──┐┌────┴──┐┌──┴───┐
-│ Leaf ││ Leaf  ││ Leaf  ││ Leaf  ││ Leaf │
-│Switch││Switch ││Switch ││Switch ││Switch│
-└──┬───┘└──┬───┘└───┬───┘└───┬───┘└──┬───┘
-   │       │        │        │       │
- Servers  Servers  Servers  Servers  Servers
+  ┌──────┐      ┌──────┐     ┌──────┐
+  │Spine │      │Spine │     │Spine │
+  │Switch│      │Switch│     │Switch│
+  └──┬───┘      └──┬───┘     └──┬───┘
+     │             │            │
+   ┌─┴─────┬───────┬───────┬────┴──┐
+   │       │       │       │       │
+┌──────┐┌──────┐┌──────┐┌──────┐┌──────┐
+│ Leaf ││ Leaf ││ Leaf ││ Leaf ││ Leaf │
+│Switch││Switch││Switch││Switch││Switch│
+└──┬───┘└──┬───┘└──┬───┘└──┬───┘└──┬───┘
+   │       │       │       │       │
+Servers Servers Servers Servers Servers
 ```
 
 **Key properties:**
@@ -378,15 +378,15 @@ A modern NVIDIA-Certified Server integrates all three processor types:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                  NVIDIA-Certified Server                   │
-│                                                           │
-│  ┌─────────┐    ┌─────────────────────────┐   ┌───────┐ │
-│  │  CPU    │    │     GPU (×2, ×4, or ×8)  │   │  DPU  │ │
-│  │         │◄──►│                          │   │       │ │
-│  │ Intel   │PCIe│  NVIDIA A100/H100/B200  │   │ Blue- │ │
-│  │ or AMD  │    │  Connected via NVLink    │   │ Field │ │
-│  │ or Grace│    │  + NVSwitch             │   │       │ │
-│  └─────────┘    └─────────────────────────┘   └───────┘ │
+│                 NVIDIA-Certified Server                  │
+│                                                          │
+│  ┌─────────┐    ┌─────────────────────────┐   ┌───────┐  │
+│  │  CPU    │    │   GPU (×2, ×4, or ×8)   │   │  DPU  │  │
+│  │         │◄──►│                         │   │       │  │
+│  │ Intel   │PCIe│  NVIDIA A100/H100/B200  │   │ Blue- │  │
+│  │ or AMD  │    │  Connected via NVLink   │   │ Field │  │
+│  │ or Grace│    │  + NVSwitch             │   │       │  │
+│  └─────────┘    └─────────────────────────┘   └───────┘  │
 │       ▲                    ▲                      ▲      │
 │       │                    │                      │      │
 │    General              AI Training           Network,   │
