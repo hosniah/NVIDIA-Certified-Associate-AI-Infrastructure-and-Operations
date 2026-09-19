@@ -181,15 +181,15 @@ Inference (using a trained model to make predictions on new data) has fundamenta
 
 ### Training vs. Inference
 
-| Characteristic | Training | Inference |
-|---------------|----------|-----------|
-| **Goal** | Learn model parameters | Generate predictions |
-| **Compute pattern** | Large batch, high throughput | Often single request, low latency |
-| **GPU utilization** | Typically high (100%) | Often low without optimization |
-| **Precision** | FP32 or mixed (FP16/BF16) | Can use lower precision (INT8, FP8, FP4) |
-| **Key metric** | Time to convergence | Latency and throughput |
-| **GPU memory** | Must hold model + gradients + optimizer | Only model + activations (smaller) |
-| **Scaling driver** | Dataset size, model size | Request volume, latency requirements |
+| Characteristic      | Training                                | Inference                                |
+| ------------------- | --------------------------------------- | ---------------------------------------- |
+| **Goal**            | Learn model parameters                  | Generate predictions                     |
+| **Compute pattern** | Large batch, high throughput            | Often single request, low latency        |
+| **GPU utilization** | Typically high (100%)                   | Often low without optimization           |
+| **Precision**       | FP32 or mixed (FP16/BF16)               | Can use lower precision (INT8, FP8, FP4) |
+| **Key metric**      | Time to convergence                     | Latency and throughput                   |
+| **GPU memory**      | Must hold model + gradients + optimizer | Only model + activations (smaller)       |
+| **Scaling driver**  | Dataset size, model size                | Request volume, latency requirements     |
 
 ### Optimization Techniques
 
@@ -371,14 +371,14 @@ Slurm uses the GRES plugin to track GPU resources. Administrators configure GPU 
 
 ### Kubernetes vs. Slurm for AI
 
-| Feature | Kubernetes + GPU Operator | Slurm |
-|---------|--------------------------|-------|
-| **Origin** | Cloud-native container orchestration | HPC workload scheduling |
-| **Best for** | Inference serving, microservices, mixed workloads | Large-scale distributed training |
-| **GPU support** | Via GPU Operator + Device Plugin | Via GRES plugin |
-| **Network** | Standard Kubernetes networking (Ethernet) | Direct InfiniBand integration with MPI |
-| **Scheduling** | Pod-level | Gang scheduling (all nodes at once) |
-| **Ecosystem** | Cloud-native (Helm, operators, service mesh) | HPC (MPI, module system, shared filesystems) |
+| Feature         | Kubernetes + GPU Operator                         | Slurm                                        |
+| --------------- | ------------------------------------------------- | -------------------------------------------- |
+| **Origin**      | Cloud-native container orchestration              | HPC workload scheduling                      |
+| **Best for**    | Inference serving, microservices, mixed workloads | Large-scale distributed training             |
+| **GPU support** | Via GPU Operator + Device Plugin                  | Via GRES plugin                              |
+| **Network**     | Standard Kubernetes networking (Ethernet)         | Direct InfiniBand integration with MPI       |
+| **Scheduling**  | Pod-level                                         | Gang scheduling (all nodes at once)          |
+| **Ecosystem**   | Cloud-native (Helm, operators, service mesh)      | HPC (MPI, module system, shared filesystems) |
 
 Many organizations use both: Slurm for training, Kubernetes for inference and serving.
 
@@ -406,13 +406,13 @@ A GPU has a fixed number of compute slices (up to 7) and memory slices (up to 8)
 
 **H100 MIG Profiles Example:**
 
-| Profile | Compute Slices | Memory | Use Case |
-|---------|---------------|--------|----------|
-| 1g.10gb | 1/7 of GPU | 10 GB | Small inference model |
-| 2g.20gb | 2/7 of GPU | 20 GB | Medium inference |
-| 3g.40gb | 3/7 of GPU | 40 GB | Larger inference or development |
-| 4g.40gb | 4/7 of GPU | 40 GB | Balanced training/inference |
-| 7g.80gb | 7/7 of GPU | 80 GB | Full GPU (MIG disabled equivalent) |
+| Profile | Compute Slices | Memory | Use Case                           |
+| ------- | -------------- | ------ | ---------------------------------- |
+| 1g.10gb | 1/7 of GPU     | 10 GB  | Small inference model              |
+| 2g.20gb | 2/7 of GPU     | 20 GB  | Medium inference                   |
+| 3g.40gb | 3/7 of GPU     | 40 GB  | Larger inference or development    |
+| 4g.40gb | 4/7 of GPU     | 40 GB  | Balanced training/inference        |
+| 7g.80gb | 7/7 of GPU     | 80 GB  | Full GPU (MIG disabled equivalent) |
 
 **MIG + Kubernetes:**
 The GPU Operator's MIG Manager automatically creates and manages MIG instances on Kubernetes nodes. Each MIG instance appears as a separate schedulable GPU resource.
@@ -423,14 +423,14 @@ The GPU Operator's MIG Manager automatically creates and manages MIG instances o
 
 **vGPU vs MIG:**
 
-| Feature | MIG | vGPU |
-|---------|-----|------|
-| **Isolation level** | Hardware-partitioned | Time-sliced or MIG-backed |
-| **Workload type** | Containers, bare metal | Virtual machines |
-| **GPU architectures** | A100, H100, B200+ | Broader GPU support |
-| **Management** | nvidia-smi, GPU Operator | NVIDIA vGPU Manager + hypervisor |
-| **License** | Free (built into GPU hardware) | Requires NVIDIA AI Enterprise license |
-| **Use case** | Cloud/container multi-tenancy | VMware/KVM virtualized environments |
+| Feature               | MIG                            | vGPU                                  |
+| --------------------- | ------------------------------ | ------------------------------------- |
+| **Isolation level**   | Hardware-partitioned           | Time-sliced or MIG-backed             |
+| **Workload type**     | Containers, bare metal         | Virtual machines                      |
+| **GPU architectures** | A100, H100, B200+              | Broader GPU support                   |
+| **Management**        | nvidia-smi, GPU Operator       | NVIDIA vGPU Manager + hypervisor      |
+| **License**           | Free (built into GPU hardware) | Requires NVIDIA AI Enterprise license |
+| **Use case**          | Cloud/container multi-tenancy  | VMware/KVM virtualized environments   |
 
 **vGPU Scheduling Modes:**
 - **Time-sliced**: The GPU's compute resources are time-shared between VMs (similar to CPU time-sharing). Simpler but less predictable performance.
@@ -519,23 +519,23 @@ Triton Inference Server supports model versioning, enabling gradual rollout of n
 
 ## Module 4 Summary
 
-| Concept | Key Takeaway |
-|---------|-------------|
-| **AI Pipeline** | Data Collection → Preprocessing → Training → Evaluation → Optimization → Deployment → Monitoring |
-| **Data Parallelism** | Model replicated on each GPU; data split across GPUs; gradients synchronized via all-reduce (NCCL) |
-| **Model/Tensor Parallelism** | Model split across GPUs; requires high-bandwidth NVLink; used when model doesn't fit in one GPU |
-| **Pipeline Parallelism** | Model split into stages; micro-batches overlap execution; trade-off is "bubble" idle time |
-| **3D Parallelism** | Combining TP + PP + DP for training the largest models across thousands of GPUs |
-| **Inference Optimization** | Quantization (FP32→INT8), layer fusion, dynamic batching, KV-cache management (TensorRT) |
-| **nvidia-smi** | Single-node GPU monitoring. Point-in-time. No alerting. Good for debugging. |
-| **DCGM** | Enterprise GPU monitoring. SM utilization, ECC errors, thermal throttling, NVLink throughput. Prometheus/Grafana integration. |
-| **Container Toolkit** | Enables `docker run --gpus`. Makes GPUs visible inside containers. Supports Docker, containerd, CRI-O. |
-| **GPU Operator** | Kubernetes operator that auto-deploys drivers, device plugin, DCGM, MIG manager. Helm-based. |
-| **Slurm** | HPC workload manager. GRES for GPUs. Gang scheduling. Common for large-scale training. |
-| **MIG** | Hardware GPU partitioning. Up to 7 instances. Full isolation. A100/H100/B200+. Free. |
-| **vGPU** | GPU virtualization for VMs. Time-sliced or MIG-backed. Requires NVIDIA AI Enterprise license. |
-| **Checkpointing** | Periodic save of training state to storage. Fault tolerance for long training runs. |
-| **MLOps** | DevOps for ML: data/model versioning, CI/CT, model registry, drift monitoring, A/B testing |
+| Concept                      | Key Takeaway                                                                                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **AI Pipeline**              | Data Collection → Preprocessing → Training → Evaluation → Optimization → Deployment → Monitoring                              |
+| **Data Parallelism**         | Model replicated on each GPU; data split across GPUs; gradients synchronized via all-reduce (NCCL)                            |
+| **Model/Tensor Parallelism** | Model split across GPUs; requires high-bandwidth NVLink; used when model doesn't fit in one GPU                               |
+| **Pipeline Parallelism**     | Model split into stages; micro-batches overlap execution; trade-off is "bubble" idle time                                     |
+| **3D Parallelism**           | Combining TP + PP + DP for training the largest models across thousands of GPUs                                               |
+| **Inference Optimization**   | Quantization (FP32→INT8), layer fusion, dynamic batching, KV-cache management (TensorRT)                                      |
+| **nvidia-smi**               | Single-node GPU monitoring. Point-in-time. No alerting. Good for debugging.                                                   |
+| **DCGM**                     | Enterprise GPU monitoring. SM utilization, ECC errors, thermal throttling, NVLink throughput. Prometheus/Grafana integration. |
+| **Container Toolkit**        | Enables `docker run --gpus`. Makes GPUs visible inside containers. Supports Docker, containerd, CRI-O.                        |
+| **GPU Operator**             | Kubernetes operator that auto-deploys drivers, device plugin, DCGM, MIG manager. Helm-based.                                  |
+| **Slurm**                    | HPC workload manager. GRES for GPUs. Gang scheduling. Common for large-scale training.                                        |
+| **MIG**                      | Hardware GPU partitioning. Up to 7 instances. Full isolation. A100/H100/B200+. Free.                                          |
+| **vGPU**                     | GPU virtualization for VMs. Time-sliced or MIG-backed. Requires NVIDIA AI Enterprise license.                                 |
+| **Checkpointing**            | Periodic save of training state to storage. Fault tolerance for long training runs.                                           |
+| **MLOps**                    | DevOps for ML: data/model versioning, CI/CT, model registry, drift monitoring, A/B testing                                    |
 
 ---
 

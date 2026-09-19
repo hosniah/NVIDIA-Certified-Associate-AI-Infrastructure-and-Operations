@@ -136,11 +136,11 @@ Machine Learning is a subset of AI where systems learn from data without being e
 
 **Three Types of Machine Learning:**
 
-| Type | How It Learns | Example |
-|------|---------------|---------|
-| **Supervised Learning** | Learns from labeled data (input-output pairs) | Image classification: given thousands of labeled cat/dog images, the model learns to classify new images |
-| **Unsupervised Learning** | Finds patterns in unlabeled data | Customer segmentation: grouping customers by purchasing behavior without predefined categories |
-| **Reinforcement Learning** | Learns through trial and error with rewards/penalties | Game playing: AlphaGo learned to play Go by playing millions of games against itself |
+| Type                       | How It Learns                                         | Example                                                                                                  |
+| -------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Supervised Learning**    | Learns from labeled data (input-output pairs)         | Image classification: given thousands of labeled cat/dog images, the model learns to classify new images |
+| **Unsupervised Learning**  | Finds patterns in unlabeled data                      | Customer segmentation: grouping customers by purchasing behavior without predefined categories           |
+| **Reinforcement Learning** | Learns through trial and error with rewards/penalties | Game playing: AlphaGo learned to play Go by playing millions of games against itself                     |
 
 ### Deep Learning (DL)
 
@@ -158,13 +158,13 @@ Deep Learning is a subset of ML that uses **artificial neural networks** with mu
 
 **Common Deep Learning Architectures:**
 
-| Architecture | Strength | Use Case |
-|-------------|----------|----------|
-| **CNN** (Convolutional Neural Network) | Spatial pattern recognition | Image classification, object detection, medical imaging |
-| **RNN/LSTM** (Recurrent Neural Network) | Sequential data processing | Time series prediction, speech recognition (largely superseded by Transformers) |
-| **Transformer** | Parallel processing of sequences with attention | NLP, LLMs, code generation, multimodal AI |
-| **GAN** (Generative Adversarial Network) | Generating realistic synthetic data | Image synthesis, data augmentation, style transfer |
-| **Diffusion Models** | High-quality image generation | Text-to-image generation (Stable Diffusion, DALL-E) |
+| Architecture                             | Strength                                        | Use Case                                                                        |
+| ---------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------- |
+| **CNN** (Convolutional Neural Network)   | Spatial pattern recognition                     | Image classification, object detection, medical imaging                         |
+| **RNN/LSTM** (Recurrent Neural Network)  | Sequential data processing                      | Time series prediction, speech recognition (largely superseded by Transformers) |
+| **Transformer**                          | Parallel processing of sequences with attention | NLP, LLMs, code generation, multimodal AI                                       |
+| **GAN** (Generative Adversarial Network) | Generating realistic synthetic data             | Image synthesis, data augmentation, style transfer                              |
+| **Diffusion Models**                     | High-quality image generation                   | Text-to-image generation (Stable Diffusion, DALL-E)                             |
 
 ### Generative AI (Gen AI)
 
@@ -242,14 +242,14 @@ The NCA-AIIO certification exists because AI workloads are **fundamentally diffe
 
 ### Traditional Computing vs. Accelerated Computing
 
-| Aspect | Traditional Computing | Accelerated Computing |
-|--------|----------------------|----------------------|
-| **Primary processor** | CPU | GPU (with CPU as host) |
-| **Parallelism** | 10s of cores | 1,000s–10,000s of cores |
-| **Workload type** | Sequential, branching logic | Massively parallel, data-parallel |
-| **Memory model** | Large shared memory (DRAM) | High-bandwidth memory (HBM) |
-| **Typical use** | Databases, web servers, general apps | AI training/inference, HPC, simulation |
-| **Performance metric** | Latency per task | Throughput (tasks per second) |
+| Aspect                 | Traditional Computing                | Accelerated Computing                  |
+| ---------------------- | ------------------------------------ | -------------------------------------- |
+| **Primary processor**  | CPU                                  | GPU (with CPU as host)                 |
+| **Parallelism**        | 10s of cores                         | 1,000s–10,000s of cores                |
+| **Workload type**      | Sequential, branching logic          | Massively parallel, data-parallel      |
+| **Memory model**       | Large shared memory (DRAM)           | High-bandwidth memory (HBM)            |
+| **Typical use**        | Databases, web servers, general apps | AI training/inference, HPC, simulation |
+| **Performance metric** | Latency per task                     | Throughput (tasks per second)          |
 
 ### Why GPUs for AI?
 
@@ -261,15 +261,15 @@ A modern data center GPU like the NVIDIA H100 delivers approximately **989 TeraF
 
 ## Module 1 Summary
 
-| Concept | Key Takeaway |
-|---------|-------------|
-| **Three AI Drivers** | Data explosion + Computational power + Algorithm breakthroughs |
-| **AI Hierarchy** | AI ⊃ ML ⊃ DL ⊃ Gen AI (nested subsets) |
-| **Machine Learning Types** | Supervised, Unsupervised, Reinforcement Learning |
-| **Key DL Architectures** | CNN (images), RNN/LSTM (sequences), Transformer (everything), GAN/Diffusion (generation) |
-| **Transformer Innovation** | Self-attention mechanism enables parallel processing of sequences |
-| **Infrastructure Impact** | AI's massive compute demands drive the need for GPU-accelerated data centers |
-| **Industry Adoption** | AI transforms automotive, healthcare, finance, retail, manufacturing, video analytics |
+| Concept                    | Key Takeaway                                                                             |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| **Three AI Drivers**       | Data explosion + Computational power + Algorithm breakthroughs                           |
+| **AI Hierarchy**           | AI ⊃ ML ⊃ DL ⊃ Gen AI (nested subsets)                                                   |
+| **Machine Learning Types** | Supervised, Unsupervised, Reinforcement Learning                                         |
+| **Key DL Architectures**   | CNN (images), RNN/LSTM (sequences), Transformer (everything), GAN/Diffusion (generation) |
+| **Transformer Innovation** | Self-attention mechanism enables parallel processing of sequences                        |
+| **Infrastructure Impact**  | AI's massive compute demands drive the need for GPU-accelerated data centers             |
+| **Industry Adoption**      | AI transforms automotive, healthcare, finance, retail, manufacturing, video analytics    |
 
 ---
 
