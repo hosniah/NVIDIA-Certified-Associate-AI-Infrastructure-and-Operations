@@ -21,11 +21,11 @@ Each generation of NVIDIA data center GPUs introduces architectural innovations 
 ### Architecture Timeline
 
 ```
-2017         2020          2022           2024
- │            │             │              │
- ▼            ▼             ▼              ▼
-Volta ──► Ampere ──► Hopper ──► Blackwell
-(V100)    (A100)     (H100/H200)  (B200/B100)
+ 2017       2020         2022            2024
+  │          │             │               │
+  ▼          ▼             ▼               ▼
+Volta  ──► Ampere ──►   Hopper    ──►  Blackwell
+(V100)     (A100)     (H100/H200)     (B200/B100)
 ```
 
 ### Volta (V100) — 2017
@@ -104,15 +104,15 @@ The B200 represents the latest generation, built on the **Blackwell architecture
 
 ### Architecture Comparison
 
-| Feature | V100 (Volta) | A100 (Ampere) | H100 (Hopper) | B200 (Blackwell) |
-|---------|-------------|---------------|---------------|-----------------|
-| **Year** | 2017 | 2020 | 2022 | 2024 |
-| **Tensor Cores** | 1st Gen | 3rd Gen | 4th Gen | 5th Gen |
-| **Memory** | 32 GB HBM2 | 80 GB HBM2e | 80 GB HBM3 | 192 GB HBM3e |
-| **Memory BW** | 900 GB/s | 2 TB/s | 3.35 TB/s | 8 TB/s |
-| **NVLink BW** | 300 GB/s | 600 GB/s | 900 GB/s | 1,800 GB/s |
-| **Key Innovation** | Tensor Cores | MIG, TF32 | Transformer Engine, FP8 | FP4, Multi-Die |
-| **MIG Support** | No | Yes (7 instances) | Yes (7 instances) | Yes |
+| Feature            | V100 (Volta) | A100 (Ampere)     | H100 (Hopper)           | B200 (Blackwell) |
+| ------------------ | ------------ | ----------------- | ----------------------- | ---------------- |
+| **Year**           | 2017         | 2020              | 2022                    | 2024             |
+| **Tensor Cores**   | 1st Gen      | 3rd Gen           | 4th Gen                 | 5th Gen          |
+| **Memory**         | 32 GB HBM2   | 80 GB HBM2e       | 80 GB HBM3              | 192 GB HBM3e     |
+| **Memory BW**      | 900 GB/s     | 2 TB/s            | 3.35 TB/s               | 8 TB/s           |
+| **NVLink BW**      | 300 GB/s     | 600 GB/s          | 900 GB/s                | 1,800 GB/s       |
+| **Key Innovation** | Tensor Cores | MIG, TF32         | Transformer Engine, FP8 | FP4, Multi-Die   |
+| **MIG Support**    | No           | Yes (7 instances) | Yes (7 instances)       | Yes              |
 
 ---
 
@@ -147,14 +147,14 @@ NVIDIA offers complete, purpose-built systems for AI workloads at various scales
 
 **HGX vs DGX:**
 
-| Aspect | DGX | HGX |
-|--------|-----|-----|
-| **Sold by** | NVIDIA directly | OEM partners (Dell, HPE, Lenovo, etc.) |
-| **Form factor** | Complete turnkey server | GPU baseboard + OEM chassis |
-| **Software** | DGX OS + NVIDIA AI Enterprise | OEM's OS + NVIDIA drivers/stack |
-| **Support** | NVIDIA DGX support | OEM support + NVIDIA driver support |
-| **Customization** | Fixed configuration | OEM can customize CPU, storage, networking |
-| **Use case** | Organizations wanting a validated, ready-to-run AI system | Organizations with existing OEM vendor relationships |
+| Aspect            | DGX                                                       | HGX                                                  |
+| ----------------- | --------------------------------------------------------- | ---------------------------------------------------- |
+| **Sold by**       | NVIDIA directly                                           | OEM partners (Dell, HPE, Lenovo, etc.)               |
+| **Form factor**   | Complete turnkey server                                   | GPU baseboard + OEM chassis                          |
+| **Software**      | DGX OS + NVIDIA AI Enterprise                             | OEM's OS + NVIDIA drivers/stack                      |
+| **Support**       | NVIDIA DGX support                                        | OEM support + NVIDIA driver support                  |
+| **Customization** | Fixed configuration                                       | OEM can customize CPU, storage, networking           |
+| **Use case**      | Organizations wanting a validated, ready-to-run AI system | Organizations with existing OEM vendor relationships |
 
 ### MGX Platform
 
@@ -231,23 +231,23 @@ NVIDIA's software ecosystem is a layered stack, from low-level GPU libraries to 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              Applications & Frameworks                   │
-│  (NeMo, Metropolis, Clara, DRIVE, Omniverse)            │
+│                Applications & Frameworks                │
+│       (NeMo, Metropolis, Clara, DRIVE, Omniverse)       │
 ├─────────────────────────────────────────────────────────┤
-│           Deployment & Serving                           │
-│  (Triton Inference Server, NIM, TensorRT)               │
+│                  Deployment & Serving                   │
+│        (Triton Inference Server, NIM, TensorRT)         │
 ├─────────────────────────────────────────────────────────┤
-│           AI Frameworks                                  │
-│  (PyTorch, TensorFlow, JAX, RAPIDS)                     │
+│                      AI Frameworks                      │
+│           (PyTorch, TensorFlow, JAX, RAPIDS)            │
 ├─────────────────────────────────────────────────────────┤
-│           Core GPU Libraries                             │
-│  (cuDNN, cuBLAS, cuFFT, NCCL, CUTLASS)                  │
+│                   Core GPU Libraries                    │
+│          (cuDNN, cuBLAS, cuFFT, NCCL, CUTLASS)          │
 ├─────────────────────────────────────────────────────────┤
-│           CUDA Platform                                  │
-│  (CUDA Toolkit, Drivers, NVML)                          │
+│                      CUDA Platform                      │
+│              (CUDA Toolkit, Drivers, NVML)              │
 ├─────────────────────────────────────────────────────────┤
-│           GPU Hardware                                   │
-│  (CUDA Cores, Tensor Cores, HBM, NVLink)                │
+│                      GPU Hardware                       │
+│         (CUDA Cores, Tensor Cores, HBM, NVLink)         │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -385,34 +385,34 @@ BCM is used to manage DGX POD and SuperPOD deployments.
 
 NVIDIA provides vertical-specific platforms built on top of the core technology stack:
 
-| Platform | Industry | Purpose |
-|----------|----------|---------|
-| **NVIDIA DRIVE** | Automotive | Autonomous vehicle development (hardware + software) |
-| **NVIDIA Clara** | Healthcare | Medical imaging, genomics (Clara Parabricks), drug discovery |
-| **NVIDIA Metropolis** | Smart Cities/Retail | Video analytics and intelligent video applications |
-| **NVIDIA Isaac** | Robotics | Robot simulation, perception, and manipulation |
-| **NVIDIA cuOpt** | Logistics | Route optimization and fleet management |
+| Platform              | Industry            | Purpose                                                      |
+| --------------------- | ------------------- | ------------------------------------------------------------ |
+| **NVIDIA DRIVE**      | Automotive          | Autonomous vehicle development (hardware + software)         |
+| **NVIDIA Clara**      | Healthcare          | Medical imaging, genomics (Clara Parabricks), drug discovery |
+| **NVIDIA Metropolis** | Smart Cities/Retail | Video analytics and intelligent video applications           |
+| **NVIDIA Isaac**      | Robotics            | Robot simulation, perception, and manipulation               |
+| **NVIDIA cuOpt**      | Logistics           | Route optimization and fleet management                      |
 
 ---
 
 ## Module 3 Summary
 
-| Concept | Key Takeaway |
-|---------|-------------|
-| **GPU Generations** | Volta (Tensor Cores) → Ampere (MIG, TF32) → Hopper (Transformer Engine, FP8) → Blackwell (FP4, multi-die) |
-| **DGX** | Turnkey NVIDIA AI server (8 GPUs, NVLink, NVSwitch, DPU). DGX H100: ~10.2 kW. DGX B200: ~14.3 kW. |
-| **HGX vs DGX** | HGX = GPU baseboard for OEMs. DGX = complete NVIDIA-branded server. Same GPU platform, different packaging. |
-| **Scaling** | GPU → Server → DGX POD (~20 nodes) → SuperPOD (32+ PODs, 2,000+ GPUs) |
-| **CUDA** | NVIDIA's parallel computing platform. Foundation of the entire AI software stack. |
-| **cuDNN/cuBLAS** | Optimized DNN and linear algebra libraries. PyTorch/TensorFlow use these under the hood. |
-| **NCCL** | Multi-GPU communication library. Topology-aware all-reduce for distributed training. |
-| **TensorRT** | Inference optimization SDK. Layer fusion, precision calibration, kernel tuning. 2–5x speedup. |
-| **Triton** | Open-source inference server. Multi-framework, dynamic batching, model versioning. |
-| **NIM** | Pre-packaged, optimized LLM container. OpenAI-compatible API. Built on Triton + TensorRT-LLM. |
-| **NGC** | Catalog of GPU-optimized containers, models, Helm charts. Not a cloud provider. |
-| **NVIDIA AI Enterprise** | Enterprise software platform with support SLAs, vGPU, certified containers. |
-| **NeMo** | End-to-end LLM framework: data curation → training → fine-tuning → evaluation → guardrails. |
-| **Base Command Manager** | Cluster management for DGX POD/SuperPOD: provisioning, scheduling, monitoring. |
+| Concept                  | Key Takeaway                                                                                                |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| **GPU Generations**      | Volta (Tensor Cores) → Ampere (MIG, TF32) → Hopper (Transformer Engine, FP8) → Blackwell (FP4, multi-die)   |
+| **DGX**                  | Turnkey NVIDIA AI server (8 GPUs, NVLink, NVSwitch, DPU). DGX H100: ~10.2 kW. DGX B200: ~14.3 kW.           |
+| **HGX vs DGX**           | HGX = GPU baseboard for OEMs. DGX = complete NVIDIA-branded server. Same GPU platform, different packaging. |
+| **Scaling**              | GPU → Server → DGX POD (~20 nodes) → SuperPOD (32+ PODs, 2,000+ GPUs)                                       |
+| **CUDA**                 | NVIDIA's parallel computing platform. Foundation of the entire AI software stack.                           |
+| **cuDNN/cuBLAS**         | Optimized DNN and linear algebra libraries. PyTorch/TensorFlow use these under the hood.                    |
+| **NCCL**                 | Multi-GPU communication library. Topology-aware all-reduce for distributed training.                        |
+| **TensorRT**             | Inference optimization SDK. Layer fusion, precision calibration, kernel tuning. 2–5x speedup.               |
+| **Triton**               | Open-source inference server. Multi-framework, dynamic batching, model versioning.                          |
+| **NIM**                  | Pre-packaged, optimized LLM container. OpenAI-compatible API. Built on Triton + TensorRT-LLM.               |
+| **NGC**                  | Catalog of GPU-optimized containers, models, Helm charts. Not a cloud provider.                             |
+| **NVIDIA AI Enterprise** | Enterprise software platform with support SLAs, vGPU, certified containers.                                 |
+| **NeMo**                 | End-to-end LLM framework: data curation → training → fine-tuning → evaluation → guardrails.                 |
+| **Base Command Manager** | Cluster management for DGX POD/SuperPOD: provisioning, scheduling, monitoring.                              |
 
 ---
 

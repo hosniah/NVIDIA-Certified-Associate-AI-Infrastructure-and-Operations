@@ -21,17 +21,17 @@ Every data center — whether it supports traditional enterprise IT or cutting-e
 ### Pillar Overview
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                    AI-Centric Data Center                     │
-├──────────────┬──────────────┬──────────────┬────────────────┤
-│   Compute    │  Networking  │   Storage    │    Support      │
-│              │              │              │ Infrastructure  │
-│  CPU         │  InfiniBand  │  Parallel    │  Power          │
-│  GPU         │  Ethernet    │  File        │  Cooling        │
-│  DPU         │  NVLink      │  Systems     │  Physical       │
-│              │  NVSwitch    │  Object      │  Security       │
-│              │              │  Storage     │                 │
-└──────────────┴──────────────┴──────────────┴────────────────┘
+┌───────────────────────────────────────────────────────────────────────┐
+│                        AI-Centric Data Center                         │
+├─────────────────┬─────────────────┬─────────────────┬─────────────────┤
+│     Compute     │   Networking    │     Storage     │     Support     │
+│                 │                 │                 │  Infrastructure │
+│  CPU            │  InfiniBand     │  Parallel       │  Power          │
+│  GPU            │  Ethernet       │  File           │  Cooling        │
+│  DPU            │  NVLink         │  Systems        │  Physical       │
+│                 │  NVSwitch       │  Object         │  Security       │
+│                 │                 │  Storage        │                 │
+└─────────────────┴─────────────────┴─────────────────┴─────────────────┘
 ```
 
 **Compute** provides the processing power — CPUs for general tasks, GPUs for parallel AI workloads, and DPUs for infrastructure offload. **Networking** connects compute nodes and enables multi-node AI training across clusters. **Storage** feeds data to the GPUs fast enough to keep them utilized. **Support Infrastructure** ensures reliable power delivery, adequate cooling, and physical security.
@@ -72,14 +72,14 @@ Think of a CPU as a **sports car** — very fast, handles complex maneuvers, but
 
 **CPU vs GPU Comparison:**
 
-| Feature | CPU | GPU |
-|---------|-----|-----|
-| **Core count** | 32–128 cores | 10,000+ CUDA cores |
-| **Core type** | Complex, independent | Simple, cooperative |
-| **Optimization** | Low latency (single task) | High throughput (many tasks) |
-| **Memory bandwidth** | ~100–200 GB/s (DDR5) | 2,000–8,000 GB/s (HBM) |
-| **Power draw** | 200–400W | 300–1,000W |
-| **Best for** | Sequential logic, OS, I/O | Matrix math, parallel compute, AI |
+| Feature              | CPU                       | GPU                               |
+| -------------------- | ------------------------- | --------------------------------- |
+| **Core count**       | 32–128 cores              | 10,000+ CUDA cores                |
+| **Core type**        | Complex, independent      | Simple, cooperative               |
+| **Optimization**     | Low latency (single task) | High throughput (many tasks)      |
+| **Memory bandwidth** | ~100–200 GB/s (DDR5)      | 2,000–8,000 GB/s (HBM)            |
+| **Power draw**       | 200–400W                  | 300–1,000W                        |
+| **Best for**         | Sequential logic, OS, I/O | Matrix math, parallel compute, AI |
 
 ### GPU History — From Gaming to AI
 
@@ -87,17 +87,17 @@ The GPU's journey from gaming peripheral to AI accelerator is a story of archite
 
 **Key Milestones:**
 
-| Year | Milestone | Significance |
-|------|-----------|-------------|
-| **1999** | NVIDIA GeForce 256 | First consumer GPU; hardware transform & lighting |
-| **2006** | CUDA released | NVIDIA opens GPU to general-purpose computing (GPGPU). Researchers can now write C code that runs on GPU cores |
-| **2009** | Stanford researchers use GPUs for deep learning | Early demonstrations that GPU parallelism dramatically accelerates neural network training |
-| **2012** | AlexNet wins ImageNet | Deep CNN trained on 2 NVIDIA GTX 580 GPUs crushes the competition. This moment proved GPUs were the future of AI |
-| **2016** | NVIDIA Pascal (P100) | First GPU designed specifically with deep learning in mind. HBM2 memory, NVLink interconnect |
-| **2017** | NVIDIA Volta (V100) | Introduced **Tensor Cores** — dedicated matrix math units. A watershed moment for AI acceleration |
-| **2020** | NVIDIA Ampere (A100) | 3rd-gen Tensor Cores, TF32 precision, Multi-Instance GPU (MIG), structural sparsity |
-| **2022** | NVIDIA Hopper (H100) | 4th-gen Tensor Cores, **Transformer Engine** with FP8 support, 3x AI performance over A100 |
-| **2024** | NVIDIA Blackwell (B200) | 5th-gen Tensor Cores, FP4 precision, 2nd-gen Transformer Engine, NVLink 5th gen at 1.8 TB/s |
+| Year     | Milestone                                       | Significance                                                                                                     |
+| -------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **1999** | NVIDIA GeForce 256                              | First consumer GPU; hardware transform & lighting                                                                |
+| **2006** | CUDA released                                   | NVIDIA opens GPU to general-purpose computing (GPGPU). Researchers can now write C code that runs on GPU cores   |
+| **2009** | Stanford researchers use GPUs for deep learning | Early demonstrations that GPU parallelism dramatically accelerates neural network training                       |
+| **2012** | AlexNet wins ImageNet                           | Deep CNN trained on 2 NVIDIA GTX 580 GPUs crushes the competition. This moment proved GPUs were the future of AI |
+| **2016** | NVIDIA Pascal (P100)                            | First GPU designed specifically with deep learning in mind. HBM2 memory, NVLink interconnect                     |
+| **2017** | NVIDIA Volta (V100)                             | Introduced **Tensor Cores** — dedicated matrix math units. A watershed moment for AI acceleration                |
+| **2020** | NVIDIA Ampere (A100)                            | 3rd-gen Tensor Cores, TF32 precision, Multi-Instance GPU (MIG), structural sparsity                              |
+| **2022** | NVIDIA Hopper (H100)                            | 4th-gen Tensor Cores, **Transformer Engine** with FP8 support, 3x AI performance over A100                       |
+| **2024** | NVIDIA Blackwell (B200)                         | 5th-gen Tensor Cores, FP4 precision, 2nd-gen Transformer Engine, NVLink 5th gen at 1.8 TB/s                      |
 
 ### Beyond Moore's Law
 
@@ -133,11 +133,11 @@ In an AI data center, every CPU cycle spent on networking overhead or storage ma
 
 ### CPU, GPU, and DPU — The Three-Processor Architecture
 
-| Processor | Primary Role | Optimization | Analogy |
-|-----------|-------------|-------------|---------|
-| **CPU** | General compute, orchestration | Latency (fast single tasks) | The brain — makes decisions |
-| **GPU** | Parallel compute, AI training/inference | Throughput (many simultaneous tasks) | The muscle — does the heavy lifting |
-| **DPU** | Infrastructure offload (network, storage, security) | I/O processing and data movement | The nervous system — handles communication |
+| Processor | Primary Role                                        | Optimization                         | Analogy                                    |
+| --------- | --------------------------------------------------- | ------------------------------------ | ------------------------------------------ |
+| **CPU**   | General compute, orchestration                      | Latency (fast single tasks)          | The brain — makes decisions                |
+| **GPU**   | Parallel compute, AI training/inference             | Throughput (many simultaneous tasks) | The muscle — does the heavy lifting        |
+| **DPU**   | Infrastructure offload (network, storage, security) | I/O processing and data movement     | The nervous system — handles communication |
 
 Modern NVIDIA-Certified Servers integrate all three processors, creating a balanced architecture where each processor handles what it does best.
 
@@ -191,11 +191,11 @@ Traditional approach using CRAC (Computer Room Air Conditioning) units. Air flow
 **Liquid Cooling:**
 As GPU power density increases, liquid cooling becomes essential:
 
-| Method | How It Works | Use Case |
-|--------|-------------|----------|
-| **Rear-Door Heat Exchangers** | Liquid-cooled door replaces standard rear door; cools exhaust air | Retrofit for existing racks |
-| **Direct-to-Chip (Cold Plate)** | Liquid flows through cold plates mounted directly on CPUs/GPUs | DGX H100, DGX B200 systems |
-| **Immersion Cooling** | Entire server submerged in dielectric fluid | Highest density deployments |
+| Method                          | How It Works                                                      | Use Case                    |
+| ------------------------------- | ----------------------------------------------------------------- | --------------------------- |
+| **Rear-Door Heat Exchangers**   | Liquid-cooled door replaces standard rear door; cools exhaust air | Retrofit for existing racks |
+| **Direct-to-Chip (Cold Plate)** | Liquid flows through cold plates mounted directly on CPUs/GPUs    | DGX H100, DGX B200 systems  |
+| **Immersion Cooling**           | Entire server submerged in dielectric fluid                       | Highest density deployments |
 
 NVIDIA DGX B200 systems are designed for **direct liquid cooling**, with cold plates mounted directly on the GPUs and a facility water loop that carries the heat away. This is critical because the B200's ~14.3 kW system power simply cannot be cooled by air alone.
 
@@ -248,14 +248,14 @@ While InfiniBand has traditionally dominated AI networking, NVIDIA's **Spectrum-
 
 **InfiniBand vs. Ethernet for AI:**
 
-| Feature | InfiniBand (NDR) | Spectrum-X (Ethernet) |
-|---------|-----------------|----------------------|
-| **Bandwidth** | 400 Gb/s | 400 Gb/s |
-| **Latency** | ~1 μs | ~2–3 μs |
-| **RDMA** | Native (built-in) | RoCE (overlay) |
-| **Lossless** | Yes (credit-based) | Yes (PFC/ECN) |
-| **Best for** | Large-scale AI training clusters | Mixed AI + enterprise workloads |
-| **Management** | Subnet Manager (OpenSM) | Standard network management |
+| Feature        | InfiniBand (NDR)                 | Spectrum-X (Ethernet)           |
+| -------------- | -------------------------------- | ------------------------------- |
+| **Bandwidth**  | 400 Gb/s                         | 400 Gb/s                        |
+| **Latency**    | ~1 μs                            | ~2–3 μs                         |
+| **RDMA**       | Native (built-in)                | RoCE (overlay)                  |
+| **Lossless**   | Yes (credit-based)               | Yes (PFC/ECN)                   |
+| **Best for**   | Large-scale AI training clusters | Mixed AI + enterprise workloads |
+| **Management** | Subnet Manager (OpenSM)          | Standard network management     |
 
 ### Intra-Node Interconnects
 
@@ -265,13 +265,13 @@ NVLink is NVIDIA's proprietary **GPU-to-GPU interconnect** within a single serve
 
 **NVLink Evolution:**
 
-| Generation | Bandwidth (bidirectional per GPU) | Introduced With |
-|-----------|-----------------------------------|----------------|
-| NVLink 1.0 | 160 GB/s | Pascal (P100) |
-| NVLink 2.0 | 300 GB/s | Volta (V100) |
-| NVLink 3.0 | 600 GB/s | Ampere (A100) |
-| NVLink 4.0 | 900 GB/s | Hopper (H100) |
-| NVLink 5.0 | 1,800 GB/s (1.8 TB/s) | Blackwell (B200) |
+| Generation | Bandwidth (bidirectional per GPU) | Introduced With  |
+| ---------- | --------------------------------- | ---------------- |
+| NVLink 1.0 | 160 GB/s                          | Pascal (P100)    |
+| NVLink 2.0 | 300 GB/s                          | Volta (V100)     |
+| NVLink 3.0 | 600 GB/s                          | Ampere (A100)    |
+| NVLink 4.0 | 900 GB/s                          | Hopper (H100)    |
+| NVLink 5.0 | 1,800 GB/s (1.8 TB/s)             | Blackwell (B200) |
 
 For comparison, PCIe Gen5 provides approximately 64 GB/s per x16 slot — NVLink 4.0 is over **14x faster**.
 
@@ -293,19 +293,19 @@ NVLink-C2C is a coherent chip-to-chip interconnect used in the **Grace Hopper Su
 AI data center networks typically use a **fat-tree (Clos) topology** or a **spine-leaf architecture**:
 
 ```
-         ┌──────┐  ┌──────┐  ┌──────┐
-         │Spine │  │Spine │  │Spine │
-         │Switch│  │Switch│  │Switch│
-         └──┬───┘  └──┬───┘  └──┬───┘
-            │         │         │
-    ┌───────┼─────────┼─────────┼───────┐
-    │       │         │         │       │
-┌───┴──┐┌──┴───┐┌────┴──┐┌────┴──┐┌──┴───┐
-│ Leaf ││ Leaf  ││ Leaf  ││ Leaf  ││ Leaf │
-│Switch││Switch ││Switch ││Switch ││Switch│
-└──┬───┘└──┬───┘└───┬───┘└───┬───┘└──┬───┘
-   │       │        │        │       │
- Servers  Servers  Servers  Servers  Servers
+  ┌──────┐      ┌──────┐     ┌──────┐
+  │Spine │      │Spine │     │Spine │
+  │Switch│      │Switch│     │Switch│
+  └──┬───┘      └──┬───┘     └──┬───┘
+     │             │            │
+   ┌─┴─────┬───────┬───────┬────┴──┐
+   │       │       │       │       │
+┌──────┐┌──────┐┌──────┐┌──────┐┌──────┐
+│ Leaf ││ Leaf ││ Leaf ││ Leaf ││ Leaf │
+│Switch││Switch││Switch││Switch││Switch│
+└──┬───┘└──┬───┘└──┬───┘└──┬───┘└──┬───┘
+   │       │       │       │       │
+Servers Servers Servers Servers Servers
 ```
 
 **Key properties:**
@@ -322,12 +322,12 @@ AI training workloads are data-hungry. A large language model training run may c
 
 ### Storage Requirements for AI
 
-| Requirement | Why It Matters |
-|------------|---------------|
+| Requirement         | Why It Matters                                                                                  |
+| ------------------- | ----------------------------------------------------------------------------------------------- |
 | **High throughput** | Multiple GPUs reading training data simultaneously need aggregate bandwidth of 10s–100s of GB/s |
-| **Low latency** | Checkpoint saving and loading during training must be fast to minimize downtime |
-| **Large capacity** | Training datasets can range from terabytes to petabytes |
-| **Parallel access** | Hundreds of GPU nodes must read from the same dataset concurrently |
+| **Low latency**     | Checkpoint saving and loading during training must be fast to minimize downtime                 |
+| **Large capacity**  | Training datasets can range from terabytes to petabytes                                         |
+| **Parallel access** | Hundreds of GPU nodes must read from the same dataset concurrently                              |
 
 ### Storage Technologies
 
@@ -378,15 +378,15 @@ A modern NVIDIA-Certified Server integrates all three processor types:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                  NVIDIA-Certified Server                   │
-│                                                           │
-│  ┌─────────┐    ┌─────────────────────────┐   ┌───────┐ │
-│  │  CPU    │    │     GPU (×2, ×4, or ×8)  │   │  DPU  │ │
-│  │         │◄──►│                          │   │       │ │
-│  │ Intel   │PCIe│  NVIDIA A100/H100/B200  │   │ Blue- │ │
-│  │ or AMD  │    │  Connected via NVLink    │   │ Field │ │
-│  │ or Grace│    │  + NVSwitch             │   │       │ │
-│  └─────────┘    └─────────────────────────┘   └───────┘ │
+│                 NVIDIA-Certified Server                  │
+│                                                          │
+│  ┌─────────┐    ┌─────────────────────────┐   ┌───────┐  │
+│  │  CPU    │    │   GPU (×2, ×4, or ×8)   │   │  DPU  │  │
+│  │         │◄──►│                         │   │       │  │
+│  │ Intel   │PCIe│  NVIDIA A100/H100/B200  │   │ Blue- │  │
+│  │ or AMD  │    │  Connected via NVLink   │   │ Field │  │
+│  │ or Grace│    │  + NVSwitch             │   │       │  │
+│  └─────────┘    └─────────────────────────┘   └───────┘  │
 │       ▲                    ▲                      ▲      │
 │       │                    │                      │      │
 │    General              AI Training           Network,   │
@@ -413,19 +413,19 @@ NVIDIA-Certified Servers come in various configurations based on GPU count and d
 
 ## Module 2 Summary
 
-| Concept | Key Takeaway |
-|---------|-------------|
-| **Four Pillars** | Compute, Networking, Storage, Support Infrastructure |
-| **CPU vs GPU** | CPU = latency-optimized, few complex cores; GPU = throughput-optimized, thousands of simple cores |
-| **DPU** | Offloads networking, storage, and security from CPU. NVIDIA BlueField. |
-| **GPU Evolution** | Gaming (1999) → CUDA (2006) → AlexNet (2012) → Tensor Cores (2017) → Transformer Engine (2022) → FP4/Blackwell (2024) |
-| **PUE** | Power Usage Effectiveness = Total Facility Energy / IT Equipment Energy. Lower is better. |
-| **Cooling** | Air cooling insufficient for modern GPU density. Direct liquid cooling (cold plate) required for DGX systems. |
-| **Compute Network** | InfiniBand (lowest latency, native RDMA) or Spectrum-X Ethernet (RoCE) |
-| **NVLink** | GPU-to-GPU interconnect. H100: 900 GB/s. B200: 1.8 TB/s. Orders of magnitude faster than PCIe. |
-| **NVSwitch** | All-to-all GPU fabric within a node |
-| **Storage** | Parallel file systems (Lustre, GPFS), GPUDirect Storage bypasses CPU |
-| **NVIDIA-Certified Servers** | OEM servers validated for optimal GPU workload performance. CPU + GPU + DPU architecture. |
+| Concept                      | Key Takeaway                                                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Four Pillars**             | Compute, Networking, Storage, Support Infrastructure                                                                  |
+| **CPU vs GPU**               | CPU = latency-optimized, few complex cores; GPU = throughput-optimized, thousands of simple cores                     |
+| **DPU**                      | Offloads networking, storage, and security from CPU. NVIDIA BlueField.                                                |
+| **GPU Evolution**            | Gaming (1999) → CUDA (2006) → AlexNet (2012) → Tensor Cores (2017) → Transformer Engine (2022) → FP4/Blackwell (2024) |
+| **PUE**                      | Power Usage Effectiveness = Total Facility Energy / IT Equipment Energy. Lower is better.                             |
+| **Cooling**                  | Air cooling insufficient for modern GPU density. Direct liquid cooling (cold plate) required for DGX systems.         |
+| **Compute Network**          | InfiniBand (lowest latency, native RDMA) or Spectrum-X Ethernet (RoCE)                                                |
+| **NVLink**                   | GPU-to-GPU interconnect. H100: 900 GB/s. B200: 1.8 TB/s. Orders of magnitude faster than PCIe.                        |
+| **NVSwitch**                 | All-to-all GPU fabric within a node                                                                                   |
+| **Storage**                  | Parallel file systems (Lustre, GPFS), GPUDirect Storage bypasses CPU                                                  |
+| **NVIDIA-Certified Servers** | OEM servers validated for optimal GPU workload performance. CPU + GPU + DPU architecture.                             |
 
 ---
 

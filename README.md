@@ -8,27 +8,27 @@ This repository contains a comprehensive study course for the **NVIDIA Certified
 
 ## About the Certification
 
-| Detail | Description |
-|--------|-------------|
+| Detail            | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
 | **Certification** | NVIDIA Certified Associate — AI Infrastructure and Operations |
-| **Exam Code** | NCA-AIIO |
-| **Questions** | 50 multiple-choice |
-| **Duration** | 60 minutes |
-| **Passing Score** | 70% (35/50) |
-| **Cost** | $125 USD |
-| **Validity** | 2 years |
-| **Delivery** | Remote-proctored via Certiverse |
-| **Prerequisites** | None (basic data center familiarity recommended) |
+| **Exam Code**     | NCA-AIIO                                                      |
+| **Questions**     | 50 multiple-choice                                            |
+| **Duration**      | 60 minutes                                                    |
+| **Passing Score** | 70% (35/50)                                                   |
+| **Cost**          | $125 USD                                                      |
+| **Validity**      | 2 years                                                       |
+| **Delivery**      | Remote-proctored via Certiverse                               |
+| **Prerequisites** | None (basic data center familiarity recommended)              |
 
 ---
 
 ## Exam Domain Weights
 
-| Domain | Weight | Description |
-|--------|--------|-------------|
-| **AI Infrastructure** | 40% | GPU scaling, AI hardware, power & cooling, on-prem vs. cloud, networking, cluster components, DPUs |
-| **Essential AI Knowledge** | 38% | AI fundamentals, NVIDIA AI stack, GPU architecture, training & inference, AI deployment |
-| **AI Operations** | 22% | Infrastructure monitoring, cluster orchestration, GPU monitoring, virtualization, containerized GPU workloads, Kubernetes GPU scheduling |
+| Domain                     | Weight | Description                                                                                                                              |
+| -------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI Infrastructure**      | 40%    | GPU scaling, AI hardware, power & cooling, on-prem vs. cloud, networking, cluster components, DPUs                                       |
+| **Essential AI Knowledge** | 38%    | AI fundamentals, NVIDIA AI stack, GPU architecture, training & inference, AI deployment                                                  |
+| **AI Operations**          | 22%    | Infrastructure monitoring, cluster orchestration, GPU monitoring, virtualization, containerized GPU workloads, Kubernetes GPU scheduling |
 
 ---
 
